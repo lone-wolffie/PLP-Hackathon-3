@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+    <title>GrowGuide 🌾 |  Sustainable Agriculture Advisor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="navbar-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Testimonies</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <button id="user-btn">
+            <i class="bi bi-person"></i>
+        </button>
+        <!-- <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button -->
+    </nav>
+
+    <!-- Main Section -->
+    <div class="header-content">
+        <header>
+            <h1>Sustainable <br>
+                <span style="color: rgb(25, 183, 4); font-weight: bold;">Agriculture Advisor</span>
+            </h1>
+            <p style="color: grey; font-size: 1.2rem;">Get personalized eco-friendly farming recommendations based on your <br>crop, soil and local weather conditions.</p>
+        </header>
+
+        <div>
+            <a href="#getstarted" class="get-started">Get Started</a>
+        </div>
+    </div>
+
+    <!-- Advise Section -->
+    <section class="advise" id="advise">
+        <div class="advise-header">
+            <h2 style="color: rgb(25, 183, 4); font-size: 1.5rem;">Crop Advisor</h2>
+            <p>Get Personalized Recommendations</p>
+        </div>
+
+        <div class="advise-content">
+            <form class="crops-form">
+                <div class="select-options">
+                    <label for="crops-selection">Select Your Crop</label>
+                    <select name="crops-selection" id="crops-selection" class="crops-selection">
+                        <option value="">-- Select a crop --</option>
+                        <option value="maize">Maize</option>
+                        <option value="beans">Beans</option>
+                        <option value="rice">Rice</option>
+                        <option value="wheat">Wheat</option>
+                        <option value="sorghum">Sorghum</option>
+                        <option value="millets">Millets</option>
+                        <option value="potato">Potato</option>
+                        <option value="tomato">Tomato</option>
+                        <option value="carrot">Carrot</option>
+                        <option value="cabbage">Cabbage</option>
+                        <option value="spinach">Spinach</option>
+                        <option value="pumpkin">Pumpkin</option>
+                        <option value="watermelon">Watermelon</option>
+                        <option value="banana">Banana</option>
+                        <option value="pineapple">Pineapple</option>
+
+                    </select>
+                </div>
+
+                <div>
+                    <label for="location">Enter Your Location (City, Country)</label>
+                    <input type="text" id="location" name="location" placeholder="City, Country">
+                </div>
+
+                <div class="select-options">
+                    <label for="soil-type">Soil Type</label>
+                    <select name="soil-type" id="soil-type" class="soil-type">
+                        <option value="">-- Select soil type --</option>
+                        <option value="clay">Clay Soil</option>
+                        <option value="sandy">Sandy Soil</option>
+                        <option value="loamy">Loamy Soil</option>
+                        <option value="alluvial">Alluvial Soil</option>
+                        <option value="volcanic">Volcanic Soil</option>
+                    </select>
+                </div>
+
+                <div>
+                    <button type="submit" id="submit-btn">Get Recommendations</button>
+                </div>
+            </form>
+
+            <!-- Results Section -->
+             <!-- Weather data -->
+            <div class="results" id="results" style="display:none;">
+                <div class="weather-icon"><i class="bi bi-cloud-moon-fill"></i></div>
+                <h3>Weather Data</h3>
+                <div id="weather-data"></div>
+
+                <h3>Crop Rotation Suggestions</h3>
+                <div id="crop-rotation-suggestions"></div>
+
+                <h3>Fertilizer Recommendations</h3>
+                <div id="fertilizer-recommendations"></div>
+
+                <h3>Water Conservation Tips</h3>
+                <div id="water-conservation-tips"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonies -->
+    <section>
+        <h2 style="margin-top: 30px;">What Our Users Say</h2>
+        <div class="testimonies" id="testimonies">
+            <div class="testimony-cards">
+                <div class="testimony-card">
+                    <img src="https://www.shutterstock.com/image-photo/joyful-older-black-woman-authentic-260nw-2135148351.jpg" 
+                        alt="Farmer Sarah's testimonial" 
+                        width="90px" height="90px"
+                        style="border-radius: 50%; margin-left: 35%;">
+                    <h4><span style="color: rgb(25, 183, 4);">Sarah Kimani.</span></h4>
+                    <p class="test-par">"GrowGuide transformed my farming practices! The personalized recommendations helped me increase my yield while being eco-friendly."</p>
+                    
+                </div>
+                <div class="testimony-card">
+                    <img src="https://images.pexels.com/photos/2024901/pexels-photo-2024901.jpeg?cs=srgb&dl=pexels-jarosz-2024901.jpg&fm=jpg" 
+                        alt="Farmer John's testimonial" 
+                        width="90px" height="90px"
+                        style="border-radius: 50%; margin-left: 35%;">
+                    <h4><span style="color: rgb(25, 183, 4);">John Donde.</span></h4>
+                    <p class="test-par">"I love how easy it is to use GrowGuide. The soil and weather-based advice is spot on. My crops have never been healthier!"</p>
+                </div>
+                <div class="testimony-card">
+                    <img src="https://media.istockphoto.com/id/1325471641/photo/portrait-of-a-happy-young-female-african-american-farmer-girl-standing-in-a-green-wheat-grass.jpg?s=612x612&w=0&k=20&c=Mdf--fqajzQpMmlyX27BSH0MAZLkClO1_WmGcPip0ho=" 
+                        alt="Farmer Maria's testimonial"    
+                        width="90px" height="90px"
+                        style="border-radius: 50%; margin-left: 35%;">
+                    <h4><span style="color: rgb(25, 183, 4);">Maria Akinyi.</span></h4>
+                    <p class="test-par">"As a small-scale farmer, GrowGuide has been a game-changer. The sustainable tips have saved me money and improved my soil quality."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div>
+            <h5>SOLUTIONS</h5>
+            <ul>
+                <li><a href="#">Weather Data</a></li>
+                <li><a href="#">Crop Rotation Suggestions</a></li>
+                <li><a href="#">Fertilizer Recommendations</a></li>
+                <li><a href="#">Water Conservation Tips</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5>SUPPORT</h5>
+            <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5>COMPANY</h5>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Blog</a></li>
+        </div>
+        <div>
+            <h5>CONNECT</h5>
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+        </div>
+        <div>
+            <p>&copy; 2025 GrowGuide. All rights reserved.</p>  
+        </div>
+    </footer>
+</body>
+</html>

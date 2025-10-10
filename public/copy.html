@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenThumb GrowGuide | Sustainable Agriculture Advisor</title>
+    <link rel="icon" type="image/x-icon" href="https://static.photos/nature/200x200/42">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        #vanta-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-primary-50 min-h-screen">
+    <div id="vanta-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img class="h-8 w-auto" src="https://static.photos/nature/200x200/42" alt="Logo">
+                        <span class="ml-2 text-xl font-bold text-primary-800">GreenThumb</span>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-primary-700 bg-primary-100">Home</a>
+                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">About</a>
+                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-secondary-600 hover:text-primary-700 hover:bg-primary-50">Contact</a>
+                </div>
+                <div class="flex items-center">
+                    <button class="p-2 rounded-full text-secondary-500 hover:text-secondary-700 hover:bg-secondary-100">
+                        <i data-feather="user"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+                <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 lg:mt-16 lg:px-8 xl:mt-20">
+                    <div class="sm:text-center lg:text-left">
+                        <h1 class="text-4xl tracking-tight font-extrabold text-secondary-900 sm:text-5xl md:text-6xl">
+                            <span class="block">Sustainable</span>
+                            <span class="block text-primary-600">Agriculture Advisor</span>
+                        </h1>
+                        <p class="mt-3 text-base text-secondary-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                            Get personalized eco-friendly farming recommendations based on your crop, soil, and local weather conditions.
+                        </p>
+                        <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                            <div class="rounded-md shadow">
+                                <a href="#advisor" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 md:py-4 md:text-lg md:px-10">
+                                    Get Started
+                                </a>
+                            </div>
+                            <div class="mt-3 sm:mt-0 sm:ml-3">
+                                <a href="#how-it-works" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary-700 bg-primary-100 hover:bg-primary-200 md:py-4 md:text-lg md:px-10">
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://static.photos/agriculture/1200x630/5" alt="Sustainable farming">
+        </div>
+    </div>
+
+    <!-- Advisor Section -->
+    <section id="advisor" class="py-12 bg-primary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-primary-600 font-semibold tracking-wide uppercase">Crop Advisor</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-secondary-900 sm:text-4xl">
+                    Get Personalized Recommendations
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="bg-white shadow rounded-lg p-6">
+                    <form id="cropForm" class="space-y-6">
+                        <div>
+                            <label for="crop" class="block text-sm font-medium text-secondary-700">Select Your Crop</label>
+                            <select id="crop" name="crop" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-secondary-300 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm rounded-md border">
+                                <option value="">-- Select a crop --</option>
+                                <option value="maize">Maize</option>
+                                <option value="beans">Beans</option>
+                                <option value="rice">Rice</option>
+                                <option value="wheat">Wheat</option>
+                                <option value="soybean">Soybean</option>
+                                <option value="potato">Potato</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="location" class="block text-sm font-medium text-secondary-700">Location (City, Country)</label>
+                            <input type="text" id="location" name="location" class="mt-1 block w-full border border-secondary-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm" placeholder="e.g. Nairobi, Kenya">
+                        </div>
+
+                        <div>
+                            <label for="soil-type" class="block text-sm font-medium text-secondary-700">Soil Type</label>
+                            <select id="soil-type" name="soil-type" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-secondary-300 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm rounded-md border">
+                                <option value="">-- Select soil type --</option>
+                                <option value="clay">Clay</option>
+                                <option value="sandy">Sandy</option>
+                                <option value="loamy">Loamy</option>
+                                <option value="silty">Silty</option>
+                                <option value="peaty">Peaty</option>
+                                <option value="chalky">Chalky</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                                Get Recommendations
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Results will be displayed here -->
+                    <div id="results" class="mt-8 hidden">
+                        <div class="bg-primary-50 rounded-lg p-4 mb-6">
+                            <h3 class="text-lg font-medium text-primary-800 mb-2">Weather Forecast</h3>
+                            <div id="weather-info" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                <!-- Weather data will be inserted here by JavaScript -->
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-white shadow rounded-lg overflow-hidden">
+                                <div class="p-5">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 bg-primary-100 rounded-md p-2">
+                                            <i data-feather="rotate-cw" class="h-6 w-6 text-primary-600"></i>
+                                        </div>
+                                        <h3 class="ml-3 text-lg font-medium text-secondary-900">Crop Rotation</h3>
+                                    </div>
+                                    <div id="rotation-tips" class="mt-4 text-secondary-600">
+                                        <!-- Rotation tips will be inserted here by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white shadow rounded-lg overflow-hidden">
+                                <div class="p-5">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 bg-primary-100 rounded-md p-2">
+                                            <i data-feather="droplet" class="h-6 w-6 text-primary-600"></i>
+                                        </div>
+                                        <h3 class="ml-3 text-lg font-medium text-secondary-900">Fertilizer Options</h3>
+                                    </div>
+                                    <div id="fertilizer-tips" class="mt-4 text-secondary-600">
+                                        <!-- Fertilizer tips will be inserted here by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white shadow rounded-lg overflow-hidden">
+                                <div class="p-5">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 bg-primary-100 rounded-md p-2">
+                                            <i data-feather="cloud-rain" class="h-6 w-6 text-primary-600"></i>
+                                        </div>
+                                        <h3 class="ml-3 text-lg font-medium text-secondary-900">Water Conservation</h3>
+                                    </div>
+                                    <div id="water-tips" class="mt-4 text-secondary-600">
+                                        <!-- Water tips will be inserted here by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-primary-600 font-semibold tracking-wide uppercase">How It Works</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-secondary-900 sm:text-4xl">
+                    Smart Sustainable Farming
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-secondary-500 lg:mx-auto">
+                    Our system analyzes multiple data points to provide the best recommendations for your farm.
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
+                            <i data-feather="cloud"></i>
+                        </div>
+                        <p class="ml-16 text-lg leading-6 font-medium text-secondary-900">Weather Data</p>
+                        <p class="mt-2 ml-16 text-base text-secondary-500">
+                            We use real-time weather data from OpenWeatherMap to provide irrigation timing and weather alerts.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
+                            <i data-feather="map"></i>
+                        </div>
+                        <p class="ml-16 text-lg leading-6 font-medium text-secondary-900">Satellite Imagery</p>
+                        <p class="mt-2 ml-16 text-base text-secondary-500">
+                            NDVI data from AgroMonitoring helps assess vegetation health and soil conditions.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
+                            <i data-feather="database"></i>
+                        </div>
+                        <p class="ml-16 text-lg leading-6 font-medium text-secondary-900">Best Practices</p>
+                        <p class="mt-2 ml-16 text-base text-secondary-500">
+                            Our recommendations are based on proven sustainable agriculture research and techniques.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-12 bg-primary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-primary-600 font-semibold tracking-wide uppercase">Testimonials</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-secondary-900 sm:text-4xl">
+                    What Farmers Are Saying
+                </p>
+            </div>
+
+            <div class="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://static.photos/people/200x200/1" alt="Farmer testimonial">
+                        </div>
+                        <div class="ml-4">
+                            <div class="text-lg font-medium text-secondary-900">John Kamau</div>
+                            <div class="text-primary-600">Maize Farmer, Kenya</div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-secondary-600">
+                            "The crop rotation suggestions have increased my yields by 20% while reducing my fertilizer costs."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://static.photos/people/200x200/2" alt="Farmer testimonial">
+                        </div>
+                        <div class="ml-4">
+                            <div class="text-lg font-medium text-secondary-900">Aisha Ndiaye</div>
+                            <div class="text-primary-600">Rice Farmer, Senegal</div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-secondary-600">
+                            "The water conservation tips helped me through last year's drought season. Highly recommended!"
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://static.photos/people/200x200/3" alt="Farmer testimonial">
+                        </div>
+                        <div class="ml-4">
+                            <div class="text-lg font-medium text-secondary-900">Carlos Mendez</div>
+                            <div class="text-primary-600">Coffee Farmer, Colombia</div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-secondary-600">
+                            "Transitioning to organic fertilizers was easier with the step-by-step guidance from this tool."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-primary-700">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+            <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                <span class="block">Ready to improve your farming?</span>
+                <span class="block text-primary-200">Get sustainable recommendations today.</span>
+            </h2>
+            <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                <div class="inline-flex rounded-md shadow">
+                    <a href="#advisor" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary-600 bg-white hover:bg-primary-50">
+                        Get Started
+                    </a>
+                </div>
+                <div class="ml-3 inline-flex rounded-md shadow">
+                    <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 bg-opacity-60 hover:bg-opacity-70">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold text-secondary-200 tracking-wider uppercase">Solutions</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-secondary-400 hover:text-white">Crop Planning</a></li>
+                        <li><a href="#" class="text-base text-secondary-400 hover:text-white">Soil Health</a></li>
+                        <li><a href="#" class="text-base text-secondary-400 hover:text-white">Water Management</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-secondary-200 tracking-wider uppercase">Support</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-secondary-400 hover:text-white">Help Center</a></li>
+                        <li><a href="#" class="text-base text-secondary-400 hover:text-white">Community</a></li>
+                        <li><a href="#" class="text-base text-secondary-400 hover:text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-secondary-200 tracking-wider uppercase">Company</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-secondary-400 hover:text-white">About</a></li>
+                        <li><a href="#" class="text-base text-secondary-400 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-base text-secondary-400 hover:text-white">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-secondary-200 tracking-wider uppercase">Connect</h3>
+                    <div class="mt-4 flex space-x-6">
+                        <a href="#" class="text-secondary-400 hover:text-white">
+                            <i data-feather="facebook" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#" class="text-secondary-400 hover:text-white">
+                            <i data-feather="twitter" class="h-6 w-6"></i>
+                        </a>
+                        <a href="#" class="text-secondary-400 hover:text-white">
+                            <i data-feather="instagram" class="h-6 w-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-secondary-700 pt-8">
+                <p class="text-base text-secondary-400 text-center">
+                    &copy; 2023 GreenThumb GrowGuide. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Vanta.js background
+        VANTA.WAVES({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x16a34a,
+            shininess: 35.00,
+            waveHeight: 15.00,
+            waveSpeed: 0.50,
+            zoom: 0.65
+        });
+
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Form submission handler
+        document.getElementById('cropForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const crop = document.getElementById('crop').value;
+            const location = document.getElementById('location').value;
+            const soilType = document.getElementById('soil-type').value;
+            
+            // Validate form
+            if (!crop || !location || !soilType) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="flex items-center justify-center"><svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Processing...</span>';
+            
+            // Simulate API call (in a real app, this would fetch from OpenWeatherMap and AgroMonitoring)
+            setTimeout(() => {
+                // Display results
+                document.getElementById('results').classList.remove('hidden');
+                
+                // Fill in weather data (mock)
+                const weatherHTML = `
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-primary-100 rounded-full p-2">
+                                <i data-feather="sun" class="h-5 w-5 text-primary-600"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium text-secondary-500">Temperature</p>
+                                <p class="text-lg font-semibold text-secondary-900">28°C</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-primary-100 rounded-full p-2">
+                                <i data-feather="cloud-rain" class="h-5 w-5 text-primary-600"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium text-secondary-500">Precipitation</p>
+                                <p class="text-lg font-semibold text-secondary-900">15% chance</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-primary-100 rounded-full p-2">
+                                <i data-feather="wind" class="h-5 w-5 text-primary-600"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm font-medium text-secondary-500">Humidity</p>
+                                <p class="text-lg font-semibold text-secondary-900">65%</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('weather-info').innerHTML = weatherHTML;
+                
+                // Fill in crop rotation tips (based on selected crop)
+                let rotationTips = '';
+                if (crop === 'maize') {
+                    rotationTips = '<p>Rotate with legumes like beans or peas to naturally replenish soil nitrogen.</p><p class="mt-2">Avoid planting maize after maize to prevent pest buildup.</p>';
+                } else if (crop === 'beans') {
+                    rotationTips = '<p>Excellent for rotation with heavy feeders like maize or wheat.</p><p class="mt-2">Follow with a leafy vegetable crop to take advantage of the nitrogen enrichment.</p>';
+                } else if (crop === 'rice') {
+                    rotationTips = '<p>Rotate with upland crops like soybeans or maize to break disease cycles.</p><p class="mt-2">Consider growing azolla (a floating fern) between seasons to improve soil fertility.</p>';
+                } else {
+                    rotationTips = '<p>Implement a 3-year rotation cycle with different plant families to maintain soil health.</p>';
+                }
+                document.getElementById('rotation-tips').innerHTML = rotationTips;
+                
+                // Fill in fertilizer options (based on crop and soil)
+                let fertilizerTips = '';
+                if (soilType === 'clay') {
+                    fertilizerTips = '<p>Add organic matter like compost to improve drainage.</p><p class="mt-2">Use slow-release organic fertilizers to prevent nutrient leaching.</p>';
+                } else if (soilType === 'sandy') {
+                    fertilizerTips = '<p>Apply well-composted manure to improve water retention.</p><p class="mt-2">Consider green manure crops to build organic content.</p>';
+                } else {
+                    fertilizerTips = '<p>Apply balanced organic fertilizer at planting time.</p><p class="mt-2">Side-dress with compost tea during the growing season.</p>';
+                }
+                
+                if (crop === 'maize') {
+                    fertilizerTips += '<p class="mt-2">Maize benefits from nitrogen-rich fertilizers like chicken manure.</p>';
+                } else if (crop === 'beans') {
+                    fertilizerTips += '<p class="mt-2">Beans fix their own nitrogen but benefit from phosphorus and potassium.</p>';
+                }
+                document.getElementById('fertilizer-tips').innerHTML = fertilizerTips;
+                
+                // Fill in water conservation tips
+                let waterTips = '';
+                if (crop === 'rice') {
+                    waterTips = '<p>Practice alternate wetting and drying (AWD) to reduce water use by 30%.</p><p class="mt-2">Use laser leveling to ensure even water distribution.</p>';
+                } else {
+                    waterTips = '<p>Implement drip irrigation to minimize water waste.</p><p class="mt-2">Use mulch to reduce evaporation and maintain soil moisture.</p>';
+                }
+                
+                if (soilType === 'sandy') {
+                    waterTips += '<p class="mt-2">Sandy soils benefit from frequent, light watering.</p>';
+                } else if (soilType === 'clay') {
+                    waterTips += '<p class="mt-2">Clay soils benefit from deep, infrequent watering.</p>';
+                }
+                document.getElementById('water-tips').innerHTML = waterTips;
+                
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Get Recommendations';
+                
+                // Refresh feather icons in new content
+                feather.replace();
+                
+                // Scroll to results
+                document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
